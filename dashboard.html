@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MindSphere Dashboard</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:#f4f7fc;
+}
+
+header{
+background:#4f46e5;
+color:white;
+padding:20px;
+text-align:center;
+}
+
+nav{
+background:white;
+padding:15px;
+display:flex;
+justify-content:center;
+gap:25px;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+nav a{
+text-decoration:none;
+color:#333;
+font-weight:bold;
+}
+
+.container{
+max-width:900px;
+margin:40px auto;
+padding:20px;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+h2{
+text-align:center;
+margin-bottom:25px;
+color:#4f46e5;
+}
+
+label{
+display:block;
+margin-top:15px;
+font-weight:bold;
+}
+
+select{
+width:100%;
+padding:12px;
+margin-top:8px;
+border:1px solid #ccc;
+border-radius:8px;
+}
+
+button{
+width:100%;
+padding:15px;
+margin-top:25px;
+background:#4f46e5;
+color:white;
+border:none;
+border-radius:10px;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+background:#3730a3;
+}
+
+.result{
+margin-top:25px;
+padding:20px;
+background:#eef2ff;
+border-radius:10px;
+text-align:center;
+}
+
+.progress{
+width:100%;
+height:25px;
+background:#ddd;
+border-radius:20px;
+overflow:hidden;
+margin-top:15px;
+}
+
+.progress-bar{
+height:100%;
+width:0%;
+background:#10b981;
+transition:1s;
+}
+
+footer{
+margin-top:50px;
+background:#111827;
+color:white;
+text-align:center;
+padding:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>🧠 MindSphere Dashboard</h1>
+<p>Your Mental Wellness Overview</p>
+</header>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="dashboard.html">Dashboard</a>
+<a href="diary.html">Diary</a>
+<a href="wellness.html">Wellness Hub</a>
+<a href="reports.html">Reports</a>
+<a href="profile.html">Profile</a>
+</nav>
+
+<div class="container">
+
+<div class="card">
+
+<h2>Mental Wellness Assessment</h2>
+
+<label>Mood</label>
+<select id="mood">
+<option value="5">😊 Very Happy</option>
+<option value="4">🙂 Happy</option>
+<option value="3">😐 Neutral</option>
+<option value="2">☹ Sad</option>
+<option value="1">😢 Very Sad</option>
+</select>
+
+<label>Stress Level</label>
+<select id="stress">
+<option value="1">Very Low</option>
+<option value="2">Low</option>
+<option value="3">Moderate</option>
+<option value="4">High</option>
+<option value="5">Very High</option>
+</select>
+
+<label>Sleep Quality</label>
+<select id="sleep">
+<option value="5">Excellent</option>
+<option value="4">Good</option>
+<option value="3">Average</option>
+<option value="2">Poor</option>
+<option value="1">Very Poor</option>
+</select>
+
+<label>Energy Level</label>
+<select id="energy">
+<option value="5">Very High</option>
+<option value="4">High</option>
+<option value="3">Moderate</option>
+<option value="2">Low</option>
+<option value="1">Very Low</option>
+</select>
+
+<button onclick="calculateScore()">
+Calculate Wellness Score
+</button>
+
+<div class="result">
+
+<h3 id="scoreText">Score: 0%</h3>
+
+<div class="progress">
+<div class="progress-bar" id="progressBar"></div>
+</div>
+
+<h3 id="status" style="margin-top:15px;">
+Status: Not Calculated
+</h3>
+
+</div>
+
+</div>
+
+</div>
+
+<footer>
+<p> STAY HEALTHY
+</p>
+</footer>
+
+<script>
+
+function calculateScore(){
+
+let mood =
+parseInt(document.getElementById("mood").value);
+
+let stress =
+parseInt(document.getElementById("stress").value);
+
+let sleep =
+parseInt(document.getElementById("sleep").value);
+
+let energy =
+parseInt(document.getElementById("energy").value);
+
+let score =
+((mood + sleep + energy + (6-stress))/20)*100;
+
+score=Math.round(score);
+
+let status="";
+
+if(score>=80){
+status="🟢 Excellent Mental Health";
+}
+else if(score>=60){
+status="🟡 Good Mental Health";
+}
+else if(score>=40){
+status="🟠 Moderate Mental Health";
+}
+else{
+status="🔴 Needs Attention";
+}
+
+document.getElementById("scoreText")
+.innerHTML="Score: "+score+"%";
+
+document.getElementById("status")
+.innerHTML=status;
+
+document.getElementById("progressBar")
+.style.width=score+"%";
+
+}
+
+</script>
+
+</body>
+</html>

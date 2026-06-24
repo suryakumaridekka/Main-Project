@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MindSphere Reports</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:#f4f7fc;
+}
+
+header{
+background:#4f46e5;
+color:white;
+padding:20px;
+text-align:center;
+}
+
+nav{
+background:white;
+padding:15px;
+display:flex;
+justify-content:center;
+gap:25px;
+box-shadow:0 2px 10px rgba(0,0,0,.1);
+}
+
+nav a{
+text-decoration:none;
+font-weight:bold;
+color:#333;
+}
+
+.container{
+max-width:1200px;
+margin:30px auto;
+padding:20px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.card h2{
+color:#4f46e5;
+margin-bottom:15px;
+}
+
+.progress{
+width:100%;
+height:25px;
+background:#ddd;
+border-radius:20px;
+overflow:hidden;
+margin-top:10px;
+}
+
+.bar{
+height:100%;
+background:#4f46e5;
+width:0%;
+transition:1s;
+}
+
+.big-score{
+font-size:50px;
+font-weight:bold;
+color:#4f46e5;
+text-align:center;
+}
+
+.summary{
+font-size:18px;
+line-height:1.8;
+}
+
+footer{
+background:#111827;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:30px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<h1>📊 Wellness Reports</h1>
+
+<p>Track Your Mental Wellness Progress</p>
+
+</header>
+
+<nav>
+
+<a href="index.html">Home</a>
+<a href="dashboard.html">Dashboard</a>
+<a href="diary.html">Diary</a>
+<a href="wellness.html">Wellness Hub</a>
+<a href="reports.html">Reports</a>
+<a href="profile.html">Profile</a>
+
+</nav>
+
+<div class="container">
+
+<div class="grid">
+
+<div class="card">
+
+<h2>Overall Wellness Score</h2>
+
+<div class="big-score" id="wellnessScore">
+88%
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>Mood Progress</h2>
+
+<div class="progress">
+<div class="bar" id="moodBar"></div>
+</div>
+
+<p id="moodText">0%</p>
+
+</div>
+
+<div class="card">
+
+<h2>Sleep Quality</h2>
+
+<div class="progress">
+<div class="bar" id="sleepBar"></div>
+</div>
+
+<p id="sleepText">0%</p>
+
+</div>
+
+<div class="card">
+
+<h2>Energy Level</h2>
+
+<div class="progress">
+<div class="bar" id="energyBar"></div>
+</div>
+
+<p id="energyText">0%</p>
+
+</div>
+
+<div class="card">
+
+<h2>Stress Management</h2>
+
+<div class="progress">
+<div class="bar" id="stressBar"></div>
+</div>
+
+<p id="stressText">0%</p>
+
+</div>
+
+<div class="card">
+
+<h2>Wellness Summary</h2>
+
+<div class="summary">
+
+<p>✅ Daily Tracking Active</p>
+
+<p>📖 Diary Entries Stored</p>
+
+<p>🧘 Meditation Practice Available</p>
+
+<p>🙏 Gratitude Journal Maintained</p>
+
+<p>🏆 Wellness Journey Progressing</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<footer>
+
+© 2026 MindSphere | Reports & Analytics
+
+</footer>
+
+<script>
+
+let mood=85;
+let sleep=78;
+let energy=82;
+let stress=65;
+
+document.getElementById("moodBar").style.width=mood+"%";
+document.getElementById("sleepBar").style.width=sleep+"%";
+document.getElementById("energyBar").style.width=energy+"%";
+document.getElementById("stressBar").style.width=stress+"%";
+
+document.getElementById("moodText").innerHTML=mood+"%";
+document.getElementById("sleepText").innerHTML=sleep+"%";
+document.getElementById("energyText").innerHTML=energy+"%";
+document.getElementById("stressText").innerHTML=stress+"%";
+
+</script>
+
+</body>
+</html>

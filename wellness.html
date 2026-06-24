@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MindSphere Wellness Hub</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:#f4f7fc;
+}
+
+header{
+background:#4f46e5;
+color:white;
+padding:20px;
+text-align:center;
+}
+
+nav{
+background:white;
+padding:15px;
+display:flex;
+justify-content:center;
+gap:25px;
+box-shadow:0 2px 10px rgba(0,0,0,.1);
+}
+
+nav a{
+text-decoration:none;
+font-weight:bold;
+color:#333;
+}
+
+.container{
+max-width:1100px;
+margin:30px auto;
+padding:20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:20px;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+text-align:center;
+}
+
+.card h2{
+color:#4f46e5;
+margin-bottom:15px;
+}
+
+.breath-circle{
+width:150px;
+height:150px;
+background:#06b6d4;
+border-radius:50%;
+margin:20px auto;
+animation:breathe 6s infinite;
+}
+
+@keyframes breathe{
+
+0%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.5);
+}
+
+100%{
+transform:scale(1);
+}
+
+}
+
+.timer{
+font-size:40px;
+font-weight:bold;
+margin:20px 0;
+color:#4f46e5;
+}
+
+button{
+padding:12px 20px;
+border:none;
+border-radius:8px;
+background:#4f46e5;
+color:white;
+cursor:pointer;
+font-size:15px;
+}
+
+button:hover{
+background:#3730a3;
+}
+
+textarea{
+width:100%;
+height:120px;
+padding:15px;
+border-radius:10px;
+border:1px solid #ccc;
+resize:none;
+}
+
+.quote{
+font-size:18px;
+font-style:italic;
+color:#555;
+margin:20px 0;
+}
+
+.saved{
+margin-top:15px;
+background:#eef2ff;
+padding:10px;
+border-radius:8px;
+}
+
+footer{
+background:#111827;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:30px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<h1>🧘 Wellness Hub</h1>
+
+<p>Relax • Reflect • Recharge</p>
+
+</header>
+
+<nav>
+
+<a href="index.html">Home</a>
+
+<a href="dashboard.html">Dashboard</a>
+
+<a href="diary.html">Diary</a>
+
+<a href="wellness.html">Wellness Hub</a>
+
+<a href="reports.html">Reports</a>
+
+<a href="profile.html">Profile</a>
+
+</nav>
+
+<div class="container">
+
+<div class="card">
+
+<h2>Guided Breathing</h2>
+
+<div class="breath-circle"></div>
+
+<p>
+Follow the circle.<br>
+Breathe In → Hold → Breathe Out
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>Meditation Timer</h2>
+
+<div id="timer" class="timer">60</div>
+
+<button onclick="startTimer()">
+Start 1-Minute Meditation
+</button>
+
+</div>
+
+<div class="card">
+
+<h2>Daily Motivation</h2>
+
+<p id="quote" class="quote"></p>
+
+<button onclick="newQuote()">
+New Quote
+</button>
+
+</div>
+
+<div class="card">
+
+<h2>Gratitude Journal</h2>
+
+<textarea
+id="gratitude"
+placeholder="Write 3 things you are thankful for...">
+</textarea>
+
+<br><br>
+
+<button onclick="saveGratitude()">
+Save Gratitude
+</button>
+
+<div id="saved" class="saved"></div>
+
+</div>
+
+</div>
+
+<footer>
+
+© 2026 MindSphere | Wellness Hub
+
+</footer>
+
+<script>
+
+let quotes=[
+
+"Your mental health is a priority.",
+
+"Small progress is still progress.",
+
+"Every day is a fresh beginning.",
+
+"You are stronger than your struggles.",
+
+"Take care of yourself first.",
+
+"Believe in your journey.",
+
+"Peace begins with a deep breath."
+
+];
+
+function newQuote(){
+
+let random=
+Math.floor(Math.random()*quotes.length);
+
+document.getElementById("quote")
+.innerHTML=quotes[random];
+
+}
+
+newQuote();
+
+let countdown;
+
+function startTimer(){
+
+let time=60;
+
+clearInterval(countdown);
+
+countdown=setInterval(()=>{
+
+document.getElementById("timer")
+.innerHTML=time;
+
+time--;
+
+if(time<0){
+
+clearInterval(countdown);
+
+alert("Meditation Session Complete!");
+
+document.getElementById("timer")
+.innerHTML="60";
+
+}
+
+},1000);
+
+}
+
+function saveGratitude(){
+
+let text=
+document.getElementById("gratitude").value;
+
+localStorage.setItem(
+"gratitude",
+text
+);
+
+document.getElementById("saved")
+.innerHTML="✅ Gratitude Saved Successfully";
+
+}
+
+window.onload=function(){
+
+let saved=
+localStorage.getItem("gratitude");
+
+if(saved){
+
+document.getElementById("gratitude")
+.value=saved;
+
+}
+
+}
+
+</script>
+
+</body>
+</html>

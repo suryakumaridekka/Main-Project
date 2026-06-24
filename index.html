@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MindSphere - Mental Wellness Platform</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#f5f7fb;
+}
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+background:white;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
+position:sticky;
+top:0;
+}
+
+.logo{
+font-size:28px;
+font-weight:700;
+color:#4f46e5;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:20px;
+}
+
+nav a{
+text-decoration:none;
+color:#333;
+font-weight:500;
+}
+
+.hero{
+height:90vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+padding:20px;
+background:linear-gradient(135deg,#4f46e5,#06b6d4);
+color:white;
+}
+
+.hero h1{
+font-size:60px;
+margin-bottom:20px;
+}
+
+.hero p{
+max-width:700px;
+font-size:20px;
+}
+
+.btn{
+display:inline-block;
+margin-top:30px;
+padding:15px 35px;
+background:white;
+color:#4f46e5;
+border-radius:40px;
+text-decoration:none;
+font-weight:600;
+}
+
+.features{
+padding:80px 10%;
+}
+
+.section-title{
+text-align:center;
+font-size:40px;
+margin-bottom:50px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card h3{
+margin-bottom:15px;
+color:#4f46e5;
+}
+
+footer{
+background:#111827;
+color:white;
+text-align:center;
+padding:30px;
+margin-top:50px;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:38px;
+}
+
+nav{
+flex-direction:column;
+gap:15px;
+}
+
+nav ul{
+flex-wrap:wrap;
+justify-content:center;
+}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">🧠 MindSphere</div>
+
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="dashboard.html">Dashboard</a></li>
+<li><a href="diary.html">Diary</a></li>
+<li><a href="wellness.html">Wellness Hub</a></li>
+<li><a href="reports.html">Reports</a></li>
+<li><a href="profile.html">Profile</a></li>
+</ul>
+
+</nav>
+
+<section class="hero">
+
+<h1>Track Your Mind. Transform Your Life.</h1>
+
+<p>
+A complete digital diary and mental wellness platform
+to help you understand emotions, improve habits,
+and monitor mental wellbeing.
+</p>
+
+<a href="dashboard.html" class="btn">
+Get Started
+</a>
+
+</section>
+
+<section class="features">
+
+<h2 class="section-title">Our Features</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>📖 Digital Diary</h3>
+<p>Write and store daily journal entries securely.</p>
+</div>
+
+<div class="card">
+<h3>😊 Mood Tracking</h3>
+<p>Track daily moods and emotional changes.</p>
+</div>
+
+<div class="card">
+<h3>📊 Analytics</h3>
+<p>View charts and emotional trends.</p>
+</div>
+
+<div class="card">
+<h3>🧘 Wellness Hub</h3>
+<p>Practice meditation and breathing exercises.</p>
+</div>
+
+<div class="card">
+<h3>🏆 Achievements</h3>
+<p>Earn badges and build healthy streaks.</p>
+</div>
+
+<div class="card">
+<h3>🌱 Wellness Garden</h3>
+<p>Grow your virtual plant with positive habits.</p>
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<h3>MindSphere</h3>
+
+<p>
+Personal Digital Diary & Mental Health Tracker
+</p>
+
+<p>
+    STAY HEALTHY,AND STAY HAPPY!
+</p>
+
+</footer>
+
+</body>
+</html>

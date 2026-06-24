@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MindSphere Register</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#4f46e5,#06b6d4);
+}
+
+.container{
+background:white;
+width:420px;
+padding:40px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.2);
+}
+
+h1{
+text-align:center;
+color:#4f46e5;
+margin-bottom:20px;
+}
+
+input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:1px solid #ccc;
+border-radius:10px;
+}
+
+button{
+width:100%;
+padding:12px;
+background:#4f46e5;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+font-size:16px;
+margin-top:10px;
+}
+
+button:hover{
+background:#3730a3;
+}
+
+p{
+text-align:center;
+margin-top:15px;
+}
+
+a{
+text-decoration:none;
+color:#4f46e5;
+font-weight:bold;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🧠 Create Account</h1>
+
+<input type="text"
+id="name"
+placeholder="Full Name">
+
+<input type="email"
+id="email"
+placeholder="Email Address">
+
+<input type="text"
+id="username"
+placeholder="Username">
+
+<input type="password"
+id="password"
+placeholder="Password">
+
+<input type="password"
+id="confirmPassword"
+placeholder="Confirm Password">
+
+<button onclick="registerUser()">
+Register
+</button>
+
+<p>
+Already have an account?
+<a href="login.html">Login</a>
+</p>
+
+</div>
+
+<script>
+
+function registerUser(){
+
+let name =
+document.getElementById("name").value;
+
+let email =
+document.getElementById("email").value;
+
+let username =
+document.getElementById("username").value;
+
+let password =
+document.getElementById("password").value;
+
+let confirm =
+document.getElementById("confirmPassword").value;
+
+if(
+name==="" ||
+email==="" ||
+username==="" ||
+password==="" ||
+confirm===""){
+alert("Please fill all fields");
+return;
+}
+
+if(password!==confirm){
+alert("Passwords do not match");
+return;
+}
+
+localStorage.setItem("username",username);
+
+alert("Registration Successful!");
+
+window.location.href="login.html";
+
+}
+
+</script>
+
+</body>
+</html>
